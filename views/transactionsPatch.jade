@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  div
+    form(method="post" action="/transactions/patch/edit")
+      div Transaction Id:  
+        select(name="id")
+          option(value="" disabled selected) Which Transaction?
+          for trx in body
+            option(value=trx.id) #{trx.id}
+      br
+      input.entry(type ="button" onclick="location.href='../../'" value="Back")
+      br
+      input.entry(type="submit" value="Submit")

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  div
+    form(method="post" action="/transactions/post/submit")
+      div Payer:  
+        select(name="payer")
+          option(value="" disabled selected) Who pays?
+          for user in body
+            option(value=user.name) #{user.name}
+      div Amount:  
+        input(type="text" name="amount" placeholder="ex. 1000")
+      div Purpose:  
+        input(type="text" name="purpose" placeholder="ex. Lunch")
+      div Payees:  
+        br
+        for user in body
+          input(type="checkbox" name="payees" value=user.name checked="checked")
+          | #{user.name}   
+          br
+      br
+      input.entry(type ="button" onclick="location.href='../../'" value="Back")
+      br
+      input.entry(type="submit" value="Submit")

@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  div
+    form(method="post" action="/transactions/patch/submit")
+      div Transaction Id:  
+        =transactions.id
+      input(type="hidden" name="id" value=transactions.id)
+      div Payer:  
+        select(name="payer")
+          option(value="" disabled) Who pays?
+            for user in users
+              if (user.name == transactions.payer)
+                option(value=user.name selected) #{user.name}
+              else
+                option(value=user.name) #{user.name}
+      div Amount:  
+        input(type="text" name="amount" placeholder="ex. 1000" value=transactions.amount)
+      div Purpose:  
+        input(type="text" name="purpose" placeholder="ex. Lunch" value=transactions.purpose)
+      div Payees:  
+        br
+        for user in users
+          if (transactions.payees.indexOf(user.name) !== -1)
+            input(type="checkbox" name="payees" value=user.name checked="checked")
+            | #{user.name}
+            br
+          else
+            input(type="checkbox" name="payees" value=user.name)
+            | #{user.name}
+            br
+      br
+      input.entry(type ="button" onclick="location.href='../patch/'" value="Back")
+      br
+      input.entry(type="submit" value="Submit")
