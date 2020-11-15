@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   div
-    form(method="post" action="/transactions/patch/edit")
+    form(method="post" action="/transactions/delete/submit")
       div Transaction Id:  
         select(name="id")
           option(value="" disabled selected) Which Transaction?

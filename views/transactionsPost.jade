@@ -5,7 +5,7 @@ block content
   div
     form(method="post" action="/transactions/post/submit")
       div Payer:  
-        select.w3-select(name="payer")
+        select(name="payer")
           option(value="" disabled selected) Who pays?
           for user in body
             option(value=user.name) #{user.name}

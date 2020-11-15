@@ -89,7 +89,14 @@ router.post('/patch/submit', function(req, res, next) {
 
 /* Go to DELETE transactions page. */
 router.get('/delete', function(req, res, next) {
-  res.render('transactionsDelete', {title: "DELETE transactions"});
+  const options = {
+    method: 'GET',
+    url: apiUrl + "/transactions",
+    json: true,
+  };
+  request(options, function(error, response, body) {
+    res.render('transactionsDelete', {title: "DELETE transactions", body: body});
+  });
 });
 
 /* DELETE transactions. */
@@ -97,12 +104,12 @@ router.post('/delete/submit', function(req, res, next) {
   console.log(req.body);
   const options = {
     method: 'DELETE',
-    url: apiUrl + "/transactions/" + req.body.name,
+    url: apiUrl + "/transactions/" + req.body.id,
     json: true,
   };
   request(options, function(error, response, body) {
     console.log(body);
-    res.render('transactionsDeleteSubmit', {title: "DELETE transactions - completed", body: {name: req.body.name}});
+    res.render('transactionsDeleteSubmit', {title: "DELETE transactions - completed", body: {id: req.body.id}});
   });
 });
 

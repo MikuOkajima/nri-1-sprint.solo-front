@@ -8,7 +8,7 @@ block content
         =transactions.id
       input(type="hidden" name="id" value=transactions.id)
       div Payer:  
-        select.w3-select(name="payer")
+        select(name="payer")
           option(value="" disabled) Who pays?
             for user in users
               if (user.name == transactions.payer)
