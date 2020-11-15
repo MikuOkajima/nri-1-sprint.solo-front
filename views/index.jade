@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  h2 Users
+    br
+    input(type ="button" onclick="location.href='./users/get'" value="GET Users")
+    br
+    input(type ="button" onclick="location.href='./users/post'" value="POST Users")
+    br
+    input(type ="button" onclick="location.href='./users/delete'" value="DELETE Users")
+  h2 Transactions
+    br
+    input(type ="button" onclick="location.href='./transactions/get'" value="GET Transactions")
+    br
+    input(type ="button" onclick="location.href='./transactions/post'" value="POST Transactions")
+    br
+    input(type ="button" onclick="location.href='./transactions/patch'" value="PATCH Transactions")
+    br
+    input(type ="button" onclick="location.href='./transactions/delete'" value="DELETE Transactions")
+  h2 Balance
+    br
+    input(type ="button" onclick="location.href='./balance/get'" value="GET Balance")

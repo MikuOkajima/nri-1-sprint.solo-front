@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  table(border='1')
+    thread
+      tr
+        th Id
+        th Payer
+        th Amount
+        th Purpose
+        th Date
+        th Payees
+    tbody
+      tr
+        td= body.id
+        td= body.payer
+        td= body.amount
+        td= body.purpose
+        td= body.date
+        th= body.payees
+  br
+  input(type ="button" onclick="location.href='../../'" value="Back")

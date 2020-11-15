@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  for user in body
+    div= user.name
+  br
+  input(type ="button" onclick="location.href='../../'" value="Back")
