@@ -54,7 +54,6 @@ router.post('/delete/submit', function(req, res, next) {
     json: true,
   };
   request(options, function(error, response, body) {
-    console.log(body);
     res.render('usersDeleteSubmit', {title: "DELETE users - completed", body: {name: req.body.name}});
   });
 });
